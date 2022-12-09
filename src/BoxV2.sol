@@ -3,7 +3,7 @@ pragma solidity 0.8.17;
 
 import "./BoxV1.sol";
 
-contract BoxV2 is Box {
+contract BoxV2 is BoxV1 {
     function increment() external override {
         number += 2;
     }
