@@ -59,6 +59,7 @@ contract UgradeTest is Test {
         assertEq(proxy.implementation(), address(box2));
 
         BoxV2 upgradedBox = BoxV2(address(proxy));
+        // should increment by 2
         upgradedBox.increment();
         assertEq(upgradedBox.number(), 3);
 
