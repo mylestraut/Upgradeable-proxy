@@ -17,7 +17,7 @@ contract UgradeTest is Test {
         box2 = new BoxV2();
     }
 
-    function testBox() public {
+    function test_Box() public {
         // set address of boxV1 as implementation contract
         proxy.setImplementation(address(box));
         assertEq(proxy.implementation(), address(box));
@@ -29,10 +29,10 @@ contract UgradeTest is Test {
         assertEq(initialBox.number(), 1);
 
         initialBox.increment();
-        assertEq(initialBox.number(), 2);
+        assertEq(initialBox.number(), 2, "2");
     }
 
-    function testBoxV2BeforeUpgrade() public {
+    function test_BoxV2BeforeUpgrade() public {
         proxy.setImplementation(address(box));
 
         //Still on V1 but using V2 api
@@ -47,7 +47,7 @@ contract UgradeTest is Test {
         upgradedBox.decrement();
     }
 
-    function testBoxV1ThenBoxV2() public {
+    function test_BoxV1ThenBoxV2() public {
         proxy.setImplementation(address(box));
         assertEq(proxy.implementation(), address(box));
 
